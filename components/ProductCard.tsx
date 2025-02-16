@@ -17,7 +17,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         onPress={() => setIsModalVisible(true)}
         className="w-44 bg-white rounded-xl shadow-lg mx-2 overflow-hidden"
       >
-        <View className="w-44 h-44 bg-gray-100">
+        <View className="w-44 h-44 bg-white">
           <Image
             source={{ uri: product.image }}
             className="w-full h-full"
