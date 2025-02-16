@@ -3,6 +3,8 @@ import {
   getAllProducts,
   getProductById,
   getProducts,
+  getCategories,
+  getProductsByCategory,
 } from "@/services/product.service";
 import { Product } from "@/common/types/product";
 
@@ -30,5 +32,25 @@ export const useProductDetail = (id: number) => {
     queryFn: () => getProductById(id),
     enabled: !!id,
     retry: 2,
+  });
+};
+
+export const useCategories = () => {
+  return useQuery<string[]>({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+    retry: 2,
+    staleTime: 1000 * 60 * 30,
+  });
+};
+
+export const useProductsByCategory = (category: string | null) => {
+  return useQuery<Product[]>({
+    queryKey: ["products", "category", category],
+    queryFn: () =>
+      category ? getProductsByCategory(category) : getAllProducts(),
+    enabled: true,
+    retry: 2,
+    staleTime: 1000 * 60 * 5,
   });
 };

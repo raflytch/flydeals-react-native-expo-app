@@ -1,11 +1,15 @@
+import { ScrollView, View } from "react-native";
 import ProductShowcase from "@/components/ui/ProductShowcase";
-import { Text, View } from "react-native";
+import CategoryProducts from "@/components/ui/CategoryProducts";
 
 const Index = () => {
   return (
-    <View className="flex-1 bg-white pt-8 px-4">
-      <ProductShowcase />
-    </View>
+    <ScrollView className="flex-1 bg-white">
+      <View className="pt-8">
+        <ProductShowcase />
+        <CategoryProducts />
+      </View>
+    </ScrollView>
   );
 };
 
