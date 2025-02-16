@@ -1,8 +1,25 @@
-import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { Tabs, useRouter } from "expo-router";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ActivityIndicator,
+  View,
+} from "react-native";
+import { useAuth } from "@/hooks/useAuth";
 
 const TabsLayout = () => {
+  const router = useRouter();
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <View className="flex-1 justify-center items-center">
+        <ActivityIndicator size="large" color="#FF5722" />
+      </View>
+    );
+  }
+
   return (
     <Tabs
       screenOptions={{
@@ -32,6 +49,9 @@ const TabsLayout = () => {
           const touchableProps: TouchableOpacityProps = {
             ...props,
             delayLongPress: props.delayLongPress || undefined,
+            onPress: !isAuthenticated
+              ? () => router.push("/login")
+              : props.onPress,
             style: [
               props.style,
               {
@@ -48,7 +68,7 @@ const TabsLayout = () => {
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
+            <MaterialCommunityIcons name="home" size={size} color={color} />
           ),
         }}
       />
@@ -57,7 +77,7 @@ const TabsLayout = () => {
         options={{
           title: "Products",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="grid" size={size} color={color} />
+            <MaterialCommunityIcons name="grid" size={size} color={color} />
           ),
         }}
       />
@@ -66,7 +86,7 @@ const TabsLayout = () => {
         options={{
           title: "Favorites",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart" size={size} color={color} />
+            <MaterialCommunityIcons name="heart" size={size} color={color} />
           ),
         }}
       />
@@ -75,16 +95,20 @@ const TabsLayout = () => {
         options={{
           title: "Cart",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="cart" size={size} color={color} />
+            <MaterialCommunityIcons name="cart" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="profile/index"
         options={{
-          title: "Profile",
+          title: isAuthenticated ? "Profile" : "Login",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
+            <MaterialCommunityIcons
+              name={isAuthenticated ? "account" : "login-variant"}
+              size={size}
+              color={color}
+            />
           ),
         }}
       />

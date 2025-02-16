@@ -1,12 +1,13 @@
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
+import { store } from "@/store/store";
+import { logout } from "@/store/slices/auth.slices";
 
 const api = axios.create({
-  baseURL: process.env.EXPO_PUBLIC_API_URL,
+  baseURL: "https://fakestoreapi.com",
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
 });
 
 api.interceptors.request.use(
@@ -17,25 +18,17 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 api.interceptors.response.use(
-  async (response) => {
-    const token = response.headers["set-cookie"];
-    if (token && Array.isArray(token)) {
-      await SecureStore.setItemAsync("token", token[0]);
-    } else if (token && typeof token === "string") {
-      await SecureStore.setItemAsync("token", token);
-    }
-    return response;
-  },
+  (response) => response,
   async (error) => {
     if (error.response?.status === 401) {
       await SecureStore.deleteItemAsync("token");
+      store.dispatch(logout());
     }
+    console.error("API Error:", error);
     return Promise.reject(error);
   }
 );
