@@ -4,7 +4,7 @@ import { store } from "@/store/store";
 import { logout } from "@/store/slices/auth.slices";
 
 const api = axios.create({
-  baseURL: "https://fakestoreapi.com",
+  baseURL: process.env.EXPO_PUBLIC_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
