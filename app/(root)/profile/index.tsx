@@ -10,6 +10,7 @@ import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
+import Loader from "@/components/Loader";
 
 const ProfileItem = ({
   icon,
@@ -41,8 +42,8 @@ const Profile = () => {
 
   if (isLoading) {
     return (
-      <View className="flex-1 items-center justify-center bg-gray-50">
-        <ActivityIndicator size="large" color="#3B82F6" />
+      <View className="flex-1 items-center justify-center bg-white">
+        <Loader />
       </View>
     );
   }
