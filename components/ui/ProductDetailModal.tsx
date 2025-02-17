@@ -12,6 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState, useRef, useEffect } from "react";
 import Loader from "../Loader";
 import ErrorNetwork from "../Error";
+import FavoriteButton from "../FavoriteButton";
 
 interface ProductDetailModalProps {
   productId: number;
@@ -71,10 +72,11 @@ const ProductDetailModal = ({
           }}
           className="bg-white rounded-t-3xl overflow-hidden max-h-[85%]"
         >
-          <View className="pt-4 px-4">
+          <View className="pt-4 px-4 flex-row justify-between items-center">
+            {product && <FavoriteButton product={product} />}
             <TouchableOpacity
               onPress={onClose}
-              className="absolute right-4 top-4 z-10"
+              className="w-10 h-10 rounded-full bg-gray-100 items-center justify-center"
             >
               <Ionicons name="close" size={24} color="#4B5563" />
             </TouchableOpacity>

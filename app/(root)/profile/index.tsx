@@ -5,12 +5,14 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   RefreshControl,
+  Image,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useProfile } from "@/hooks/useProfile";
 import { useAuth } from "@/hooks/useAuth";
 import Loader from "@/components/Loader";
+import ErrorNetwork from "@/components/Error";
 
 const ProfileItem = ({
   icon,
@@ -51,9 +53,7 @@ const Profile = () => {
   if (isError) {
     return (
       <View className="flex-1 items-center justify-center bg-gray-50 p-4">
-        <Text className="text-red-500 text-center mb-4">
-          Error loading profile
-        </Text>
+        <ErrorNetwork />
         <TouchableOpacity
           onPress={() => refetch()}
           className="bg-[#77B254] px-6 py-3 rounded-xl"
@@ -73,8 +73,14 @@ const Profile = () => {
     >
       <View className="p-4">
         <View className="items-center mb-6 bg-white rounded-2xl p-6">
-          <View className="w-24 h-24 bg-gray-200 rounded-full items-center justify-center mb-4">
-            <Ionicons name="person" size={48} color="#6B7280" />
+          <View className="w-24 h-24 rounded-full overflow-hidden mb-4">
+            <Image
+              source={{
+                uri: "https://avatars.githubusercontent.com/u/108708078?v=4",
+              }}
+              className="w-full h-full"
+              resizeMode="cover"
+            />
           </View>
           <Text className="text-2xl font-semibold text-[#77B254]">
             {profile?.name.firstname} {profile?.name.lastname}

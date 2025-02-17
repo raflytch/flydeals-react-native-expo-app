@@ -21,7 +21,7 @@ const UserGreeting = () => {
   if (isLoading || !profile) {
     return (
       <View className="px-4 mb-6">
-        <Text className="text-2xl font-semibold text-gray-800">Welcome</Text>
+        <Text className="text-2xl font-semibold text-[#77B254]">Welcome</Text>
         <Text className="text-gray-500 font-medium">
           Check out our latest products
         </Text>

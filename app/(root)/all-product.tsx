@@ -11,7 +11,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { Product } from "@/common/types/product";
 
 const AllProducts = () => {
   const router = useRouter();
@@ -61,12 +60,12 @@ const AllProducts = () => {
         <View className="flex-row items-center mb-4 gap-4">
           <TouchableOpacity
             onPress={() => router.back()}
-            className="w-10 h-10 rounded-full bg-gray-100 items-center justify-center mr-4"
+            className="w-10 h-10 rounded-full bg-[#77B254] items-center justify-center mr-4"
           >
-            <Ionicons name="chevron-back" size={24} color="#4B5563" />
+            <Ionicons name="chevron-back" size={24} color="#FFFFFF" />
           </TouchableOpacity>
           <View>
-            <Text className="text-2xl font-semibold text-gray-800">
+            <Text className="text-2xl font-semibold text-[#77B254]">
               All Products
             </Text>
             <Text className="text-gray-500 font-medium">

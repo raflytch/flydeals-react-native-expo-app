@@ -31,7 +31,10 @@ const ProductCardHorizontal = ({ product }: ProductCardHorizontalProps) => {
           >
             {product.title}
           </Text>
-          <Text className="text-sm text-gray-500 mb-2" numberOfLines={2}>
+          <Text
+            className="text-sm font-medium text-gray-500 mb-2"
+            numberOfLines={2}
+          >
             {product.description}
           </Text>
           <View className="flex-row justify-between items-center mt-auto">
@@ -40,7 +43,7 @@ const ProductCardHorizontal = ({ product }: ProductCardHorizontalProps) => {
             </Text>
             <View className="flex-row items-center">
               <Ionicons name="star" size={14} color="#FFB800" />
-              <Text className="text-sm text-gray-600 ml-1">
+              <Text className="text-sm text-gray-600 ml-1 font-semibold">
                 {product.rating.rate}
               </Text>
             </View>

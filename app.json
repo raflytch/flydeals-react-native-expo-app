@@ -14,7 +14,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon-custom.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#77B254"
       }
     },
     "web": {
@@ -30,7 +30,7 @@
           "image": "./assets/images/splash-icon-custom.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#77B254"
         }
       ],
       "expo-secure-store"

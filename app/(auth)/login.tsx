@@ -134,6 +134,16 @@ const Login = () => {
               <Text className="text-white font-semibold text-lg">Sign In</Text>
             </TouchableOpacity>
           </View>
+
+          <View className="mt-10 items-center">
+            <Text className="text-[#77B254] text-sm font-medium">
+              © {process.env.EXPO_PUBLIC_CREATOR_NAME}{" "}
+              {new Date().getFullYear()}
+            </Text>
+            <Text className="text-[#77B254] text-sm font-medium">
+              All Rights Reserved
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
