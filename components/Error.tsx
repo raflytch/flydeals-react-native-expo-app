@@ -27,7 +27,7 @@ const ErrorNetwork = () => {
       </Text>
       <TouchableOpacity
         onPress={handleRetry}
-        className="bg-blue-500 px-6 py-3 rounded-lg"
+        className="bg-[#77B254] px-6 py-3 rounded-lg"
       >
         <Text className="text-white font-semibold text-sm">Retry</Text>
       </TouchableOpacity>

@@ -1,21 +1,51 @@
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useCategories, useProductsByCategory } from "@/hooks/useProducts";
 import ProductCard from "@/components/ProductCard";
+import ProductCardHorizontal from "@/components/ProductCardHorizontal";
+import FilterHeader from "@/components/FilterHeader";
+import SortModal from "@/components/SortModal";
 import Loader from "@/components/Loader";
 import ErrorNetwork from "@/components/Error";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { Product } from "@/common/types/product";
 
 const AllProducts = () => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [isSortModalVisible, setIsSortModalVisible] = useState(false);
+
+  const layout = useSelector((state: RootState) => state.product.layout);
+  const sortBy = useSelector((state: RootState) => state.product.sortBy);
+
   const { data: categories, isLoading: loadingCategories } = useCategories();
   const {
     data: products,
     isLoading: loadingProducts,
     isError,
   } = useProductsByCategory(selectedCategory);
+
+  const sortedProducts = useMemo(() => {
+    if (!products) return [];
+
+    const productsCopy = [...products];
+
+    switch (sortBy) {
+      case "price_asc":
+        return productsCopy.sort((a, b) => a.price - b.price);
+      case "price_desc":
+        return productsCopy.sort((a, b) => b.price - a.price);
+      case "name_asc":
+        return productsCopy.sort((a, b) => a.title.localeCompare(b.title));
+      case "name_desc":
+        return productsCopy.sort((a, b) => b.title.localeCompare(a.title));
+      default:
+        return productsCopy;
+    }
+  }, [products, sortBy]);
 
   if (loadingProducts || loadingCategories) {
     return <Loader />;
@@ -27,7 +57,7 @@ const AllProducts = () => {
 
   return (
     <ScrollView className="flex-1 bg-white">
-      <View className="px-8 pt-8 mb-4">
+      <View className="px-8 pt-8">
         <View className="flex-row items-center mb-4 gap-4">
           <TouchableOpacity
             onPress={() => router.back()}
@@ -53,7 +83,7 @@ const AllProducts = () => {
           <TouchableOpacity
             onPress={() => setSelectedCategory(null)}
             className={`mr-2 px-4 py-2 rounded-full ${
-              selectedCategory === null ? "bg-blue-600" : "bg-gray-100"
+              selectedCategory === null ? "bg-[#77B254]" : "bg-gray-100"
             }`}
           >
             <Text
@@ -69,7 +99,7 @@ const AllProducts = () => {
               key={category}
               onPress={() => setSelectedCategory(category)}
               className={`mr-2 px-4 py-2 rounded-full ${
-                selectedCategory === category ? "bg-blue-600" : "bg-gray-100"
+                selectedCategory === category ? "bg-[#77B254]" : "bg-gray-100"
               }`}
             >
               <Text
@@ -84,11 +114,26 @@ const AllProducts = () => {
         </ScrollView>
       </View>
 
-      <View className="flex-row flex-wrap justify-center gap-4 px-2 mb-14">
-        {products?.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </View>
+      <FilterHeader onSortPress={() => setIsSortModalVisible(true)} />
+
+      {layout === "grid" ? (
+        <View className="flex-row flex-wrap justify-center gap-4 px-2 mb-14">
+          {sortedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </View>
+      ) : (
+        <View className="px-4 mb-14">
+          {sortedProducts.map((product) => (
+            <ProductCardHorizontal key={product.id} product={product} />
+          ))}
+        </View>
+      )}
+
+      <SortModal
+        isVisible={isSortModalVisible}
+        onClose={() => setIsSortModalVisible(false)}
+      />
     </ScrollView>
   );
 };

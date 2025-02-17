@@ -73,7 +73,7 @@ const Login = () => {
               <Text className="text-gray-700 font-medium text-base">
                 Username
               </Text>
-              <View className="flex-row items-center border-2 border-gray-200 rounded-2xl px-4 h-14 focus-within:border-blue-500">
+              <View className="flex-row items-center border-2 border-gray-200 rounded-2xl px-4 h-14 focus-within:border-[#77B254]">
                 <Ionicons name="person-outline" size={22} color="#6B7280" />
                 <TextInput
                   placeholder="Enter your username"
@@ -90,7 +90,7 @@ const Login = () => {
               <Text className="text-gray-700 font-medium text-base">
                 Password
               </Text>
-              <View className="flex-row items-center border-2 border-gray-200 rounded-2xl px-4 h-14 focus-within:border-blue-500">
+              <View className="flex-row items-center border-2 border-gray-200 rounded-2xl px-4 h-14 focus-within:border-[#77B254]">
                 <Ionicons
                   name="lock-closed-outline"
                   size={22}
@@ -121,7 +121,7 @@ const Login = () => {
               onPress={() => router.push("https://fakestoreapi.com/docs")}
               className="self-end"
             >
-              <Text className="text-blue-600 font-medium text-base">
+              <Text className="text-[#77B254] font-medium text-base">
                 Forgot Password?
               </Text>
             </TouchableOpacity>
@@ -129,7 +129,7 @@ const Login = () => {
             <TouchableOpacity
               onPress={handleSubmit}
               disabled={login.isPending}
-              className="h-14 rounded-2xl items-center justify-center bg-blue-600 active:bg-blue-700 disabled:bg-blue-400 mt-2"
+              className="h-14 rounded-2xl items-center justify-center bg-[#77B254] active:bg-[#77B254]/90 disabled:bg-[#77B254]/50 mt-2"
             >
               <Text className="text-white font-semibold text-lg">Sign In</Text>
             </TouchableOpacity>

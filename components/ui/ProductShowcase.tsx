@@ -25,14 +25,16 @@ const ProductShowcase = () => {
     <View className="mb-6">
       <View className="flex-row justify-between items-center px-4 mb-4">
         <View className="flex-1">
-          <Text className="text-2xl font-semibold text-gray-800">Products</Text>
+          <Text className="text-2xl font-semibold text-[#77B254]">
+            Products
+          </Text>
           <Text className="text-gray-500 font-medium">
             Discover our amazing collection
           </Text>
         </View>
         <TouchableOpacity
           onPress={() => router.push("/all-product")}
-          className="bg-blue-600 px-4 py-2 rounded-full"
+          className="bg-[#77B254] px-4 py-2 rounded-full"
         >
           <Text className="text-white font-semibold">See All</Text>
         </TouchableOpacity>

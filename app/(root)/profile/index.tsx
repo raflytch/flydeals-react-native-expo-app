@@ -56,7 +56,7 @@ const Profile = () => {
         </Text>
         <TouchableOpacity
           onPress={() => refetch()}
-          className="bg-blue-600 px-6 py-3 rounded-xl"
+          className="bg-[#77B254] px-6 py-3 rounded-xl"
         >
           <Text className="text-white font-medium">Retry</Text>
         </TouchableOpacity>
@@ -76,7 +76,7 @@ const Profile = () => {
           <View className="w-24 h-24 bg-gray-200 rounded-full items-center justify-center mb-4">
             <Ionicons name="person" size={48} color="#6B7280" />
           </View>
-          <Text className="text-2xl font-semibold text-gray-800">
+          <Text className="text-2xl font-semibold text-[#77B254]">
             {profile?.name.firstname} {profile?.name.lastname}
           </Text>
           <Text className="text-gray-500 mt-1 font-medium">

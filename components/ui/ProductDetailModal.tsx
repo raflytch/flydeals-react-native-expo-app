@@ -98,7 +98,7 @@ const ProductDetailModal = ({
                 <Text className="text-xl font-medium text-gray-800 mb-2">
                   {product?.title}
                 </Text>
-                <Text className="text-2xl font-semibold text-blue-600 mb-2">
+                <Text className="text-2xl font-semibold text-[#77B254] mb-2">
                   ${product?.price.toFixed(2)}
                 </Text>
                 <View className="flex-row items-center mb-4">
@@ -122,7 +122,7 @@ const ProductDetailModal = ({
                     <Ionicons name="add" size={20} color="#4B5563" />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity className="bg-blue-600 px-8 py-3 rounded-lg flex-row items-center">
+                <TouchableOpacity className="bg-[#77B254] px-8 py-3 rounded-lg flex-row items-center">
                   <Ionicons
                     name="cart"
                     size={20}
