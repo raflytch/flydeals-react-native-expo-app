@@ -1,4 +1,3 @@
-// components/ui/BannerSlider.tsx
 import {
   View,
   Image,
