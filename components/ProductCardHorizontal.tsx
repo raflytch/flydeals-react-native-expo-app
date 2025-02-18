@@ -15,7 +15,7 @@ const ProductCardHorizontal = ({ product }: ProductCardHorizontalProps) => {
     <>
       <TouchableOpacity
         onPress={() => setIsModalVisible(true)}
-        className="flex-row bg-white rounded-xl shadow-lg mx-2 mb-4 overflow-hidden w-full"
+        className="flex-row bg-white rounded-xl shadow-lg mb-4 overflow-hidden w-full"
       >
         <View className="w-32 h-32 bg-white p-2">
           <Image
@@ -24,7 +24,7 @@ const ProductCardHorizontal = ({ product }: ProductCardHorizontalProps) => {
             resizeMode="contain"
           />
         </View>
-        <View className="flex-1 p-4">
+        <View className="flex-1 p-4 pr-6">
           <Text
             className="text-base font-medium text-gray-800 mb-2"
             numberOfLines={2}

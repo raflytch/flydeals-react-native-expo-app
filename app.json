@@ -9,9 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.raflyazizabdillah.flydeals"
     },
     "android": {
+      "package": "com.raflyazizabdillah.flydeals",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon-custom.png",
         "backgroundColor": "#77B254"
@@ -43,6 +45,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fd8ea5d7-23f2-45e4-845c-4b31b1e09f32"
+      }
     }
   }
 }

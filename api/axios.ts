@@ -29,7 +29,6 @@ api.interceptors.response.use(
       await SecureStore.deleteItemAsync("token");
       store.dispatch(logout());
     }
-    console.error("API Error:", error);
     return Promise.reject(error);
   }
 );

@@ -6,6 +6,9 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { View } from "react-native";
 import { AuthProvider } from "@/providers/auth-provider";
+import AddToCartSuccessModal from "@/components/ui/modal/AddToCartSuccessModal";
+import PaymentSuccessModal from "@/components/ui/modal/PaymentSuccessModal";
+import PaymentModal from "@/components/ui/modal/PaymentModal";
 import "./global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -48,6 +51,9 @@ const AppLayout = () => {
                 }}
               />
             </Stack>
+            <AddToCartSuccessModal />
+            <PaymentModal />
+            <PaymentSuccessModal />
           </View>
         </AuthProvider>
       </QueryProvider>

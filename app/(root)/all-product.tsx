@@ -122,7 +122,7 @@ const AllProducts = () => {
           ))}
         </View>
       ) : (
-        <View className="px-4 mb-14">
+        <View className="px-8 mb-14">
           {sortedProducts.map((product) => (
             <ProductCardHorizontal key={product.id} product={product} />
           ))}

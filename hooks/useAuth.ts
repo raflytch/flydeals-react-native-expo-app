@@ -41,7 +41,7 @@ export const useAuth = () => {
       dispatch(setToken(null));
       dispatch(setAuthenticated(false));
     } catch (error) {
-      console.error("Logout error:", error);
+      throw new Error(`Error logging out: ${error}`);
     }
   };
 

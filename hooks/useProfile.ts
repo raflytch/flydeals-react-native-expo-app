@@ -16,7 +16,6 @@ export const useProfile = () => {
       const response = await userService.getUserProfile(userId);
       return response.data;
     } catch (error) {
-      console.error("Profile fetch error:", error);
       throw error;
     }
   };

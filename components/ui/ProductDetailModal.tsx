@@ -10,6 +10,8 @@ import {
 import { useProductDetail } from "@/hooks/useProducts";
 import { Ionicons } from "@expo/vector-icons";
 import { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slices/cart.slices";
 import Loader from "../Loader";
 import ErrorNetwork from "../Error";
 import FavoriteButton from "../FavoriteButton";
@@ -25,6 +27,7 @@ const ProductDetailModal = ({
   isVisible,
   onClose,
 }: ProductDetailModalProps) => {
+  const dispatch = useDispatch();
   const { data: product, isLoading, isError } = useProductDetail(productId);
   const [quantity, setQuantity] = useState(1);
   const slideAnim = useRef(new Animated.Value(0)).current;
@@ -48,6 +51,16 @@ const ProductDetailModal = ({
 
   const handleIncrement = () => setQuantity((prev) => prev + 1);
   const handleDecrement = () => setQuantity((prev) => Math.max(1, prev - 1));
+
+  const handleAddToCart = () => {
+    if (product) {
+      onClose();
+      setTimeout(() => {
+        dispatch(addToCart({ product, quantity }));
+      }, 100);
+      setQuantity(1);
+    }
+  };
 
   if (!isVisible) return null;
 
@@ -95,7 +108,6 @@ const ProductDetailModal = ({
                   resizeMode="contain"
                 />
               </View>
-
               <View className="mb-4">
                 <Text className="text-xl font-medium text-gray-800 mb-2">
                   {product?.title}
@@ -113,7 +125,6 @@ const ProductDetailModal = ({
                   {product?.description}
                 </Text>
               </View>
-
               <View className="flex-row items-center justify-between mb-6">
                 <View className="flex-row items-center bg-gray-100 rounded-lg">
                   <TouchableOpacity onPress={handleDecrement} className="p-3">
@@ -124,7 +135,10 @@ const ProductDetailModal = ({
                     <Ionicons name="add" size={20} color="#4B5563" />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity className="bg-[#77B254] px-8 py-3 rounded-lg flex-row items-center">
+                <TouchableOpacity
+                  onPress={handleAddToCart}
+                  className="bg-[#77B254] px-8 py-3 rounded-lg flex-row items-center"
+                >
                   <Ionicons
                     name="cart"
                     size={20}

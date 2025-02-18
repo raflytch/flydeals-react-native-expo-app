@@ -26,7 +26,6 @@ export const useLogin = () => {
           dispatch(setAuthenticated(true));
           router.replace("/");
         } catch (error) {
-          console.error("Invalid token received:", error);
           throw new Error("Invalid token received from server");
         }
       }
