@@ -6,7 +6,7 @@ import BannerSlider from "@/components/ui/BannerSlider";
 
 const Index = () => {
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScrollView className="flex-1 bg-gray-50">
       <View className="pt-8">
         <UserGreeting />
         <BannerSlider />

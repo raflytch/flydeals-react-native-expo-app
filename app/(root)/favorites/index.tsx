@@ -27,7 +27,7 @@ const Favorites = () => {
 
   if (favorites.length === 0) {
     return (
-      <View className="flex-1 bg-white">
+      <View className="flex-1 bg-gray-50">
         <View className="px-8 pt-8">
           <View className="flex-row items-center mb-4 gap-4">
             <TouchableOpacity
@@ -52,7 +52,7 @@ const Favorites = () => {
   }
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-gray-50">
       <View className="px-8 pt-8">
         <View className="flex-row items-center mb-4 gap-4">
           <TouchableOpacity
