@@ -80,8 +80,9 @@ const Login = () => {
                   value={username}
                   onChangeText={setUsername}
                   autoCapitalize="none"
-                  className="flex-1 ml-3 text-base text-gray-800"
+                  className="flex-1 ml-3 text-base text-gray-800 font-[Poppins-Regular]"
                   placeholderTextColor="#9CA3AF"
+                  style={{ fontFamily: "Poppins-Regular" }}
                 />
               </View>
             </View>
@@ -101,8 +102,9 @@ const Login = () => {
                   value={password}
                   onChangeText={setPassword}
                   secureTextEntry={!showPassword}
-                  className="flex-1 ml-3 text-base text-gray-800"
+                  className="flex-1 ml-3 text-base text-gray-800 font-[Poppins-Regular]"
                   placeholderTextColor="#9CA3AF"
+                  style={{ fontFamily: "Poppins-Regular" }}
                 />
                 <TouchableOpacity
                   onPress={() => setShowPassword(!showPassword)}

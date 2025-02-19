@@ -70,14 +70,13 @@ const Cart = () => {
               }}
               autoPlay
               loop
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: 200, height: 200 }}
             />
           </View>
-          <Text className="text-xl font-medium text-gray-800 mb-2">
-            Your cart is empty
-          </Text>
-          <Text className="text-gray-500 text-center mb-4 font-medium">
-            Add some items to your cart to proceed with checkout
+
+          <Text className="text-xl font-medium text-gray-600 text-center mt-4 px-4">
+            You have no items in your cart. Add some items to your cart to
+            proceed with checkout
           </Text>
         </View>
       </View>
