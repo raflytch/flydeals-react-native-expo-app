@@ -55,7 +55,7 @@ const Profile = () => {
 
   if (isLoading) {
     return (
-      <View className="flex-1 items-center justify-center bg-white">
+      <View className="flex-1 items-center justify-center bg-gray-50">
         <Loader />
       </View>
     );
@@ -65,12 +65,6 @@ const Profile = () => {
     return (
       <View className="flex-1 items-center justify-center bg-gray-50 p-4">
         <ErrorNetwork />
-        <TouchableOpacity
-          onPress={() => refetch()}
-          className="bg-[#77B254] px-6 py-3 rounded-xl"
-        >
-          <Text className="text-white font-[Poppins-Medium]">Retry</Text>
-        </TouchableOpacity>
       </View>
     );
   }

@@ -10,7 +10,7 @@ const ErrorNetwork = () => {
   };
 
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="flex-1 items-center justify-center bg-gray-50">
       <LottieView
         source={{
           uri: "https://lottie.host/1be7670d-c87a-4b32-bf97-d6ed44c77ffc/Z6lGMH85X6.lottie",
