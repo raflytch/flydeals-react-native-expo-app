@@ -1,50 +1,69 @@
-# Welcome to your Expo app 👋
+# FlyDeals - E-Commerce Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+FlyDeals is a simple e-commerce mobile application built with React Native and Expo. It integrates FakeStore API to display products and provides essential shopping features such as product listing, cart management, and user authentication.
 
-## Get started
+## ✨ Features
 
-1. Install dependencies
+- **Home Page** - Displays a list of products with categories and pricing.
+- **Product Details** - Shows product description, ratings, and images.
+- **Favorites** - Allows users to save favorite products.
+- **Cart Management** - Users can add and remove items from the cart.
+- **Checkout Process** - Simulates a seamless checkout experience.
+- **Authentication** - Secure login and user session management.
+- **Smooth UI & Animations** - Enhanced with Reanimated and Gesture Handler.
+- **Lottie Animations** - Implemented for cart actions, loading states, and empty pages.
 
-   ```bash
-   npm install
-   ```
+## 🛠 Tech Stack
 
-2. Start the app
+- **Framework:** React Native & Expo
+- **State Management:** Redux Toolkit
+- **Data Fetching:** React Query & Axios
+- **Navigation:** React Navigation
+- **Styling:** Tailwind CSS & NativeWind
+- **Authentication:** JWT Decode & Secure Store
+- **Animations:** Reanimated, Gesture Handler & LottieFiles
 
-   ```bash
-    npx expo start
-   ```
+## 🚀 Getting Started
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Clone the repository
 
 ```bash
-npm run reset-project
+  git clone https://github.com/raflytch/flydeals-react-native-expo-app.git
+  cd flydeals-react-native-expo-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Install dependencies
 
-## Learn more
+```bash
+  npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Start the application
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+  npx expo start
+```
 
-## Join the community
+You can run the app on:
 
-Join our community of developers creating universal apps.
+- **Expo Go** (Scan the QR code in your terminal)
+- **Android Emulator**
+- **iOS Simulator**
+- **Development Build**
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📥 Try the App
+
+Download and test the app from this link:
+[FlyDeals APK & Build Folder](https://drive.google.com/drive/folders/1J6YpIvRcpMT9gPLB2MF4pEm8FlmUmkIW)
+
+---
+
+### 📌 Repository
+
+Check out the project repository on GitHub:  
+[FlyDeals GitHub Repo](https://github.com/raflytch/flydeals-react-native-expo-app)
+
+---
+
+**Copyright © 2025**  
+[GitHub - Rafly Aziz Abdillah](https://github.com/raflytch)
